@@ -1,0 +1,23 @@
+data:
+  X_train: './data/Train/X_train.txt'
+  y_train: './data/Train/y_train.txt'
+  X_test: './data/Test/X_test.txt'
+  y_test: './data/Test/y_test.txt'
+  features: './data/features.txt'
+  activity_labels: './data/activity_labels.txt'
+pipeline:
+  transformer:
+    normalize:
+      norm: ['l2']
+    pca:
+      threshold: [0.8, 0.9]
+  classifier:
+    knn:
+      n_neighbors: [3, 4, 5]
+      weights: ['uniform', 'distance']
+      p: [1, 2]
+  grid:
+    cv: 2
+    scoring: 'f1_weighted'
+    n_jobs: 2
+    verbose: 2
