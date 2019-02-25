@@ -1,0 +1,22 @@
+data:
+  X_train: './data/Train/X_train.txt'
+  y_train: './data/Train/y_train.txt'
+  X_test: './data/Test/X_test.txt'
+  y_test: './data/Test/y_test.txt'
+  features: './data/features.txt'
+  activity_labels: './data/activity_labels.txt'
+pipeline:
+  transformer:
+    normalize:
+      norm: ['l2']
+    kpca:
+      n_components: [10, 20, 50, 100]
+      kernel: ['linear', 'rbf', 'poly']
+      random_state: [0]
+  classifier:
+    logistic:
+      penalty: ['l1', 'l2', 'elasticnet']
+      max_iter: [100, 1000]
+  grid:
+    cv: 2
+    scoring: 'f1_weighted'

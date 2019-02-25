@@ -10,11 +10,11 @@ from xgboost import XGBClassifier
 class LogisticModel(SGDClassifier):
     def __init__(self, penalty=None, early_stopping=True, loss='log',
                  learning_rate='optimal', class_weight='balanced',
-                 max_iter=10000, shuffle=True, **kwargs):
+                 max_iter=10000, shuffle=True, random_state=0, **kwargs):
         super().__init__(penalty=penalty, early_stopping=early_stopping,
                          loss=loss, learning_rate=learning_rate,
                          class_weight=class_weight, max_iter=max_iter,
-                         shuffle=shuffle, **kwargs)
+                         shuffle=shuffle, random_state=random_state, **kwargs)
 
 
 class Models(Enum):

@@ -4,7 +4,7 @@ import numpy as np
 from keras.layers import Dense, Input
 from keras.models import Model
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.decomposition import PCA
+from sklearn.decomposition import PCA, KernelPCA
 from sklearn.preprocessing import Normalizer
 
 from export import get_features
@@ -124,8 +124,10 @@ class Transformers(Enum):
     subset = 2
     autoencoder = 3
     normalize = 4
+    kpca = 5
 
 Transformers.pca.transformer = PCATransformer
 Transformers.subset.transformer = FeatureSubsetTransformer
 Transformers.autoencoder.transformer = AutoencoderTransformer
 Transformers.normalize.transformer = Normalizer
+Transformers.kpca.transformer = KernelPCA
