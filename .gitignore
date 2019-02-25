@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+.ipynb_checkpoints/
+
+# Editors
+.vscode
+
+# Data
+data/*
+!data/.gitkeep
+
+# Local
+local/*
+!local/.gitkeep
