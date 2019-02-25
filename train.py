@@ -23,8 +23,8 @@ def main(args):
     if not os.path.exists(MODELS_PATH):
         os.makedirs(MODELS_PATH)
 
-    if not os.path.exists(MODELS_PATH):
-        os.makedirs(MODELS_PATH)
+    if not os.path.exists(CV_PARAMS_PATH):
+        os.makedirs(CV_PARAMS_PATH)
 
     X_train, X_test, y_train, y_test = config.get_data_from_config()
     grid = config.get_estimator_from_config()
