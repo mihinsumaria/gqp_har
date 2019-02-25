@@ -1,7 +1,6 @@
 from pprint import pprint
 
 import numpy as np
-from ruamel import yaml
 from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
 
@@ -9,18 +8,17 @@ from export import (get_data_xy, get_feature_indices, get_features,
                     get_labels_dictionary)
 from models import Models
 from transformers import Transformers
-from utils import terminal_break
+from utils import terminal_break, yaml_load
 
 
 class Config:
 
     def __init__(self, config_file):
-        with open(config_file, 'r') as f:
-            self.config = yaml.safe_load(f)
-            print("Config file loaded successfully: {}".format(config_file))
-            terminal_break()
-            pprint(self.config)
-            terminal_break()
+        self.config = yaml_load(config_file)
+        print("Config file loaded successfully: {}".format(config_file))
+        terminal_break()
+        pprint(self.config)
+        terminal_break()
 
     def get_data_from_config(self):
         print("Fetching data from config")
@@ -58,10 +56,7 @@ class Config:
             grid_params[classifier_name + "__" + param] = value
         steps.append((classifier_name, classifier()))
         pipe = Pipeline(steps=steps)
-        cv = self.pipeline['grid']['cv']
-        scoring = self.pipeline['grid']['scoring']
-        grid = GridSearchCV(pipe, grid_params, scoring=scoring, cv=cv,
-                            verbose=1)
+        grid = GridSearchCV(pipe, grid_params, **self.pipeline['grid'])
         return grid
 
     def __getattr__(self, item):

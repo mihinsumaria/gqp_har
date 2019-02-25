@@ -16,7 +16,16 @@ pipeline:
   classifier:
     logistic:
       penalty: ['l1', 'l2', 'elasticnet']
-      max_iter: [100, 1000]
+      max_iter: [1000, 10000]
+      n_jobs: [2]
+      early_stopping: [True]
+      loss: ['log']
+      learning_rate: ['optimal']
+      class_weight: ['balanced']
+      shuffle: [True]
+      random_state: [0]
   grid:
     cv: 2
     scoring: 'f1_weighted'
+    n_jobs: 2
+    verbose: 2
