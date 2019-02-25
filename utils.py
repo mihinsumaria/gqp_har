@@ -19,7 +19,7 @@ def pickle_load(file):
 
 
 def yaml_dump(data, file):
-    with open(file, 'r') as f:
+    with open(file, 'w') as f:
         yaml.safe_dump(data, f)
 
 
