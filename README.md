@@ -12,6 +12,12 @@ Create a virtual environment for python3 and install using the required python p
 ### Dataset
 Please download the dataset from [here](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones), and unzip it in the `data` directory.
 
+Alternatively, you can just run the following commands in `gqp_har/`:
+
+```
+chmod u+x get_data.sh
+./get_data.sh
+```
 ### Running the Project
 Please find example configs in the `configs` directory. After creating and adding your config to the directory, you can run the `train.py`. You will have to provide the path to the config file via command line, and also give a name to the config/model. You can find more information for the command line arguments by running.
 
