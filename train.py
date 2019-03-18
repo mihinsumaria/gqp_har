@@ -7,6 +7,10 @@ from sklearn.metrics import classification_report
 from config import Config
 from utils import terminal_break, pickle_dump
 
+file_path = os.path.abspath(__file__)
+file_directory = os.path.dirname(file_path)
+os.chdir(file_directory)
+
 TRAINING_RESULTS = './local/results'
 MODELS_PATH = './local/models'
 CV_PARAMS_PATH = './local/params'
