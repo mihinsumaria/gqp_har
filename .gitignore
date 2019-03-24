@@ -17,7 +17,3 @@ local/*
 # Configs
 configs/*
 !configs/.gitkeep
-
-# Subsets
-subsets/*
-!subsets/xgb_var_subset.txt
