@@ -16,9 +16,7 @@ local/*
 
 # Configs
 configs/*
-!configs/pca_logistic_config.yml
-!configs/autoencoder_logistic_config.yml
-!configs/vif_subset_logistic_config.yml
+!configs/.gitkeep
 
 # Subsets
 subsets/*
