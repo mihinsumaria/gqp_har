@@ -5,7 +5,7 @@ import time
 from sklearn.metrics import classification_report
 
 from config import Config
-from utils import terminal_break, pickle_dump
+from utils import terminal_break, pickle_dump, dict_dump
 
 file_path = os.path.abspath(__file__)
 file_directory = os.path.dirname(file_path)
@@ -50,8 +50,8 @@ def main(args):
 
     cv_params_and_score = {'best_score': grid.best_score_,
                            'best_params': grid.best_params_}
-    params_path = os.path.join(CV_PARAMS_PATH, name + '_params.pkl')
-    pickle_dump(cv_params_and_score, params_path)
+    params_path = os.path.join(CV_PARAMS_PATH, name + '_params.txt')
+    dict_dump(cv_params_and_score, params_path)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

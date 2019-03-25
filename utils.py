@@ -1,5 +1,7 @@
-import shutil
+import json
 import pickle
+import shutil
+
 from ruamel import yaml
 
 
@@ -18,12 +20,12 @@ def pickle_load(file):
         return pickle.load(f)
 
 
-def yaml_dump(data, file):
-    with open(file, 'w') as f:
-        yaml.safe_dump(data, f)
-
-
 def yaml_load(file):
     with open(file, 'r') as f:
         loaded_yaml = yaml.safe_load(f)
     return loaded_yaml
+
+
+def dict_dump(d, file):
+    with open(file, 'w') as f:
+        f.write(json.dumps(d, indent=2))
