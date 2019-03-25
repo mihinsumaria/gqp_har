@@ -17,3 +17,6 @@ local/*
 # Configs
 configs/*
 !configs/.gitkeep
+
+# Turing
+jobs/
