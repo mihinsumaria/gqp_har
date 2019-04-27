@@ -21,11 +21,11 @@ chmod u+x get_data.sh
 ### Running the Project
 Please find example configs in the `configs` directory. After creating and adding your config to the directory, you can run the `train.py`. You will have to provide the path to the config file via command line, and also give a name to the config/model. You can find more information for the command line arguments by running.
 
-`train.py --help`
+`python train.py --help`
 
 For eg.
 
-`train.py --config ./configs/pca_logistic_config.yml --name pca_logistic`
+`python train.py --config ./configs/pca_logistic_config.yml --name pca_logistic`
 
 ### Results
 The test results will be stored in `local/results` and the trained model will be pickled and stored in `local/models`.
